@@ -2,6 +2,7 @@ import streamlit as st
 import tempfile
 
 from analyze import analyze_photo
+from create_analytics import log_event
 
 # st.title()
 # st.header()
@@ -56,6 +57,8 @@ uploaded_file = st.file_uploader(
 
 if uploaded_file is not None:
 
+    log_event("Upload")
+
     st.image(
         uploaded_file,
         caption="Uploaded Photo",
@@ -99,17 +102,40 @@ st.subheader("Was this feedback helpful?")
 col1, col2 = st.columns(2)
 
 with col1:
-    st.button("👍 Yes")
+    if st.button("👍 Yes"):
+
+    log_event("Helpful")
+
+    st.success(
+        "Thanks for the feedback!"
+    )
 
 with col2:
-    st.button("👎 No")
+    if st.button("👎 No"):
+
+    log_event("Not Helpful")
+
+    st.success(
+        "Thanks for the feedback!"
+    )
 
 
 feedback = st.text_area(
     "Anything confusing or missing?"
 )
 
-st.button("Submit Feedback")
+if st.button("Submit Feedback"):
+
+    if feedback.strip():
+
+        log_event(
+            "Feedback",
+            feedback
+        )
+
+        st.success(
+            "Feedback submitted!"
+        )
 
 
 # ========================
