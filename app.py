@@ -104,20 +104,20 @@ col1, col2 = st.columns(2)
 with col1:
     if st.button("👍 Yes"):
 
-    log_event("Helpful")
+        log_event("Helpful")
 
-    st.success(
-        "Thanks for the feedback!"
-    )
+        st.success(
+            "Thanks for the feedback!"
+        )
 
 with col2:
     if st.button("👎 No"):
 
-    log_event("Not Helpful")
+        log_event("Not Helpful")
 
-    st.success(
-        "Thanks for the feedback!"
-    )
+        st.success(
+            "Thanks for the feedback!"
+        )
 
 
 feedback = st.text_area(
