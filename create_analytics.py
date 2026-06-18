@@ -2,16 +2,26 @@ import gspread
 
 from google.oauth2.service_account import Credentials
 
-
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
-    'https://www.googleapis.com/auth/drive'
+    "https://www.googleapis.com/auth/drive"
 ]
 
-CREDS = Credentials.from_service_account_file(
-    "google_credentials.json",
-    scopes=SCOPES
-)
+try:
+
+    import streamlit as st
+
+    CREDS = Credentials.from_service_account_info(
+        st.secrets["gcp_service_account"],
+        scopes=SCOPES
+    )
+
+except Exception:
+
+    CREDS = Credentials.from_service_account_file(
+        "google_credentials.json",
+        scopes=SCOPES
+    )
 
 CLIENT = gspread.authorize(CREDS)
 
