@@ -33,7 +33,20 @@ st.title("Beginner Photographer Photo Coach")
 st.write(
     """
     Upload a photo and get beginner-friendly feedback about
-    camera settings and common photography mistakes!
+    camera settings and common photography mistakes.
+
+    **Best For:**
+    - Landscapes
+    - Wildlife
+    - Birds
+    - Travel photos
+    - Family photos
+    - Everyday photography
+
+    **Note:** Advanced techniques such as long exposures,
+    light trails, waterfalls, and some night photography
+    may trigger warnings that can be ignored if the effect
+    was intentional.
     """
 )
 

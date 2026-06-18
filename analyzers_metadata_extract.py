@@ -2,20 +2,27 @@ import exifread
 
 def convert_fraction(value):
 
-    value = str(value)
+    value = str(value).strip()
 
     if "/" in value:
 
         num, den = value.split("/")
 
+        num = float(num)
+        den = float(den)
+
+        if den == 0:
+
+            return None
+
         return round(
-            float(num) / float(den),
-            2
+            num / den,
+            4
         )
 
     return round(
         float(value),
-        2
+        4
     )
 
 def extract_metadata(image_path):
@@ -42,9 +49,10 @@ def extract_metadata(image_path):
 
             tags = exifread.process_file(f)
 
-            # print("FNumber =", tags.get("EXIF FNumber"))
-            # print("ExposureTime =", tags.get("EXIF ExposureTime"))
-            # print("FocalLength =", tags.get("EXIF FocalLength"))
+            #test to see if numbers actually pull
+            print("FNumber =", tags.get("EXIF FNumber"))
+            print("ExposureTime =", tags.get("EXIF ExposureTime"))
+            print("FocalLength =", tags.get("EXIF FocalLength"))
 
         # Camera Maker
 
@@ -84,15 +92,6 @@ def extract_metadata(image_path):
                 f"ISO-{iso}"
             )
 
-        # print("FOUND FNUMBER:",
-        #       tags.get("EXIF FNumber"))
-
-        # print("FOUND SHUTTER:",
-        #       tags.get("EXIF ExposureTime"))
-
-        # print("FOUND FOCAL:",
-        #       tags.get("EXIF FocalLength"))
-        
         # F-Stop
 
         if "EXIF FNumber" in tags:

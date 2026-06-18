@@ -62,7 +62,6 @@ def analyze_photo(image_path):
 
     report.append("")
     report.append("Metadata (Camera Settings)")
-    report.append("")
     report.append(format_metadata(metadata))
 
     report.append("")
@@ -102,7 +101,7 @@ def main():
 
     # image_path = sys.argv[1]
     # image_path = input("Enter image path: ")
-    image_path = r"C:\Users\Marlow\Downloads\lll\Coding\Photo Analyzer for beginning photographers\test photos\test_darkness.jpg"
+    image_path = r"C:\Users\Marlow\Downloads\lll\Coding\Photo Analyzer for beginning photographers\test photos\test_blur_expos.jpg"
 
     report = analyze_photo(image_path)
 
