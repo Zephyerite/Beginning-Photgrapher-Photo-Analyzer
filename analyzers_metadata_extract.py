@@ -42,6 +42,10 @@ def extract_metadata(image_path):
 
             tags = exifread.process_file(f)
 
+            print("FNumber =", tags.get("EXIF FNumber"))
+            print("ExposureTime =", tags.get("EXIF ExposureTime"))
+            print("FocalLength =", tags.get("EXIF FocalLength"))
+
         # Camera Maker
 
         if "Image Make" in tags:
@@ -80,6 +84,15 @@ def extract_metadata(image_path):
                 f"ISO-{iso}"
             )
 
+        print("FOUND FNUMBER:",
+              tags.get("EXIF FNumber"))
+
+        print("FOUND SHUTTER:",
+              tags.get("EXIF ExposureTime"))
+
+        print("FOUND FOCAL:",
+              tags.get("EXIF FocalLength"))
+        
         # F-Stop
 
         if "EXIF FNumber" in tags:

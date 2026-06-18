@@ -73,7 +73,7 @@ if uploaded_file is not None:
     st.image(
         uploaded_file,
         caption="Uploaded Photo",
-        use_container_width=True
+        width="stretch"
     )
 
     with tempfile.NamedTemporaryFile(
