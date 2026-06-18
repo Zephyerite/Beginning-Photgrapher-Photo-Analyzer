@@ -102,7 +102,7 @@ def main():
 
     # image_path = sys.argv[1]
     # image_path = input("Enter image path: ")
-    image_path = r"C:\Users\Marlow\Downloads\lll\Coding\Photo Analyzer for beginning photographers\test photos\test_blur_expos.jpg"
+    image_path = r"C:\Users\Marlow\Downloads\lll\Coding\Photo Analyzer for beginning photographers\test photos\test_darkness.jpg"
 
     report = analyze_photo(image_path)
 

@@ -28,12 +28,12 @@ st.set_page_config(
 # HEADER
 # ========================
 
-st.title("Photo Coach")
+st.title("Beginner Photographer Photo Coach")
 
 st.write(
     """
     Upload a photo and get beginner-friendly feedback about
-    camera settings and common photography mistakes.
+    camera settings and common photography mistakes!
     """
 )
 
@@ -46,7 +46,7 @@ st.write(
 ## will need ot make avail for .arw, .cr2, .nef, .dng ..etc later
 
 uploaded_file = st.file_uploader(
-    "Choose a JPG or JPEG image",
+    "Choose a JPG or JPEG image - please upload ONE image at a time",
     type=["jpg", "jpeg"]
 )
 
@@ -55,9 +55,20 @@ uploaded_file = st.file_uploader(
 # ANALYSIS SECTION
 # ========================
 
+if "last_upload" not in st.session_state:
+
+    st.session_state.last_upload = None
+
+
 if uploaded_file is not None:
 
-    log_event("Upload")
+    if uploaded_file.name != st.session_state.last_upload:
+
+        log_event("Upload")
+
+        st.session_state.last_upload = (
+            uploaded_file.name
+        )
 
     st.image(
         uploaded_file,

@@ -1,5 +1,22 @@
 import exifread
 
+def convert_fraction(value):
+
+    value = str(value)
+
+    if "/" in value:
+
+        num, den = value.split("/")
+
+        return round(
+            float(num) / float(den),
+            2
+        )
+
+    return round(
+        float(value),
+        2
+    )
 
 def extract_metadata(image_path):
 
@@ -67,8 +84,8 @@ def extract_metadata(image_path):
 
         if "EXIF FNumber" in tags:
 
-            f_stop = float(
-                str(tags["EXIF FNumber"])
+            f_stop = convert_fraction(
+                tags["EXIF FNumber"]
             )
 
             metadata["f_stop_value"] = f_stop
@@ -81,36 +98,36 @@ def extract_metadata(image_path):
 
         if "EXIF ExposureTime" in tags:
 
-            shutter = str(
+            shutter = convert_fraction(
                 tags["EXIF ExposureTime"]
             )
 
             metadata["shutter_value"] = shutter
 
-            if "/" in shutter:
+            if shutter >= 1:
 
                 metadata["shutter_speed"] = (
-                    f"{shutter} sec"
+                    f"{shutter:g} sec"
                 )
 
             else:
 
                 metadata["shutter_speed"] = (
-                    f"{shutter} sec"
+                    f"1/{round(1/shutter)} sec"
                 )
 
         # Focal Length
 
         if "EXIF FocalLength" in tags:
 
-            focal = float(
-                str(tags["EXIF FocalLength"])
+            focal = convert_fraction(
+                tags["EXIF FocalLength"]
             )
 
             metadata["focal_length_value"] = focal
 
             metadata["focal_length"] = (
-                f"{focal:g} mm"
+                f"{round(focal)} mm"
             )
 
     except Exception as e:
