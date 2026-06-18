@@ -66,29 +66,29 @@ def analyze_photo(image_path):
     report.append(format_metadata(metadata))
 
     report.append("")
-    report.append("------------------------")
+    report.append("------------------------------------------------------------------------")
     report.append(format_blur(blur))
 
     report.append("")
-    report.append("------------------------")
+    report.append("------------------------------------------------------------------------")
     report.append(format_exposure(exposure))
 
     report.append("")
-    report.append("------------------------")
+    report.append("------------------------------------------------------------------------")
     report.append(format_noise(noise))
 
     report.append("")
-    report.append("------------------------")
+    report.append("------------------------------------------------------------------------")
     report.append(format_contrast(contrast))
 
     report.append("")
-    report.append("------------------------")
+    report.append("------------------------------------------------------------------------")
     report.append(format_white_balance(wb))
 
     report.append("")
-    report.append("========================")
+    report.append("============================================")
     report.append("TOP RECOMMENDATIONS - FOR THIS PICTURE")
-    report.append("========================")
+    report.append("============================================")
 
     for r in recommendations:
 

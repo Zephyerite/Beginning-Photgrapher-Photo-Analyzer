@@ -173,5 +173,9 @@ st.write(
 
     If it helps other photographers learn too,
     that's even better.
+
+    And Mom, if you're reading this, you can 
+    always ask me in person or over the phone
+    as well, dont worry:)
     """
 )
