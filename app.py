@@ -220,7 +220,6 @@ st.write(
 My mom wanted to learn photography but found books,
 videos, and camera settings overwhelming.
 
-```
 The problem wasn't that information didn't exist.
 There are thousands of photography books, YouTube
 videos, and tutorials available online.
@@ -256,6 +255,5 @@ even better.
 And Mom, if you're reading this, you can still
 call me to ask your questions.
 """
-```
 
 )
