@@ -28,7 +28,7 @@ st.set_page_config(
 # HEADER
 # ========================
 
-st.title("Beginner Photographer Photo Coach")
+st.title("Photo Coach")
 st.caption(
     "Free • No signup required • Photos are not stored"
 )
@@ -45,26 +45,12 @@ st.write(
     - Travel photos
     - Family photos
     - Everyday photography
-
-    **Current Limitations:**
-    - Best results come from standard JPG and JPEG images
-    - Advanced techniques such as long exposures, light trails,
-      waterfalls, and some night photography may trigger warnings
-      that can be ignored if the effect was intentional
-    - Some camera models provide more metadata than others
-    - This tool is designed primarily for beginner photographers
-
-    **Help Improve Photo Coach**
-    If the tool misses something important, please use the
-    feedback section below. New features and improvements are
-    added based on user suggestions.
     """
 )
 
 
 st.info(
-    "Tip: Upload a photo you think didn't turn out well. "
-    "The tool is most useful when diagnosing photography mistakes."
+    "Tip: The most useful feedback comes from photos that didn't turn out the way you expected."
 )
 
 # ========================
@@ -130,6 +116,20 @@ if uploaded_file is not None:
 
     st.text(report)
 
+st.divider()
+
+st.subheader("Current Limitations")
+
+st.write(
+    """
+    - Only supports JPG and JPEG images
+    - Advanced techniques such as long exposures, light trails,
+      waterfalls, and some night photography may trigger warnings
+      that can be ignored if the effect was intentional
+    - Some camera models provide more metadata than others
+    - This tool is designed primarily for beginner photographers
+    """
+)
 
 # ========================
 # FEEDBACK SECTION
@@ -216,39 +216,46 @@ st.divider()
 st.subheader("Why I Built This")
 
 st.write(
-    """
-    My mom wanted to learn photography but found books,
-    videos, and camera settings overwhelming.
+"""
+My mom wanted to learn photography but found books,
+videos, and camera settings overwhelming.
 
-    The biggest problem wasn't a lack of information.
-    There are thousands of photography books, YouTube
-    videos, blogs, and courses available.
+```
+The problem wasn't that information didn't exist.
+There are thousands of photography books, YouTube
+videos, and tutorials available online.
 
-    The problem was that none of them explained *her*
-    photo.
+The problem was that none of them were helping in
+the moment.
 
-    A book might explain motion blur, but not why her
-    bird photo was blurry. A YouTube video might talk
-    about exposure settings for a cloudy day, while she
-    was shooting in bright sunlight. Most photography
-    advice is general, but beginners usually want to
-    know what happened in the specific photo they just
-    took.
+A video might explain settings for a cloudy day
+while she was shooting in bright sunlight. A book
+might explain shutter speed, but it couldn't look
+at her actual photo and tell her what went wrong.
 
-    She kept asking me questions about settings,
-    exposure, blur, and why certain photos didn't turn
-    out the way she expected.
+She kept asking me questions about exposure, blur,
+focus, and why certain photos didn't turn out the
+way she expected.
 
-    So I built this tool to explain photography
-    mistakes in plain English and help beginners
-    understand what their camera settings are actually
-    doing using the photo they just uploaded.
+After answering the same questions over and over,
+I realized there should be an easier way for
+beginners to understand what their camera settings
+are actually doing.
 
-    If it helps other photographers learn too,
-    that's even better.
+So I built Photo Coach.
 
-    And Mom, if you're reading this, you can always
-    ask me in person or over the phone as well,
-    don't worry :)
-    """
+The goal is simple:
+
+Upload a photo, get beginner-friendly feedback,
+and learn from your own images instead of generic
+examples.
+
+If it helps other photographers learn too, that's
+even better.
+
+And Mom, if you're reading this, you can still
+call me to ask your questions.
+"""
+```
+
 )
