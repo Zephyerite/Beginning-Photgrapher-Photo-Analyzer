@@ -207,6 +207,28 @@ st.write(
     """
 )
 
+st.divider()
+
+st.subheader("How Photo Coach Works")
+
+st.write(
+    """
+    Photo Coach does not use AI to judge your photos.
+
+    Instead, it analyzes information contained within
+    the image itself, including camera settings used and
+    measurable image characteristics such as brightness,
+    blur, contrast, noise, and color balance.
+
+    Feedback is generated using basic photography rules and
+    image analysis rather than subjective opinions.
+
+    The goal is to explain *why* a photo may have turned
+    out a certain way and help beginners understand what
+    their camera settings were doing.
+    """
+)
+
 # ========================
 # ABOUT SECTION
 # ========================
